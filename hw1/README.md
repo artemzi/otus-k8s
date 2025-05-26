@@ -70,7 +70,7 @@ $ helm install \
 --values k8s/values.yaml \
 minio-operator minio-operator/tenant
 
-$ kubectl port-forward svc/myminio-hl 9000 -n minio-operator # можно забить и ходить по 9443 но в целом редирект работает
+$ kubectl port-forward svc/myminio-hl 9000 -n minio-operator # можно забить и ходить по 9443 но в целом редирект работает, нужно для valero
 $ kubectl port-forward svc/myminio-console 9443 -n minio-operator
 
 ```
