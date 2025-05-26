@@ -1,0 +1,14 @@
+# Byte-compiled Python files
+*.pyc
+*.pyo
+
+
+# Docker files
+docker-compose.yml
+
+# IDE files
+.vscode/
+
+# Other files
+data/
+env/
