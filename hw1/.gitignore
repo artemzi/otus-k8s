@@ -12,3 +12,4 @@ docker-compose.yml
 # Other files
 data/
 env/
+.DS_Store

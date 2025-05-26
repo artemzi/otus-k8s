@@ -1,0 +1,30 @@
+configuration:
+  backupStorageLocation:
+    - name: default
+      provider: aws
+      bucket: django-app
+      default: true
+      config:
+        region: minio
+        s3ForcePathStyle: true
+        s3Url: https://myminio-hl.minio-operator.svc.cluster.local:9000
+        insecureSkipTLSVerify: true
+  volumeSnapshotLocation:
+    - name: default
+      provider: aws
+      config:
+        region: minio
+credentials:
+  existingSecret: velero-credentials
+  secretContents:
+    cloud: |
+      [django-app]
+      aws_access_key_id = minio
+      aws_secret_access_key = minio123
+
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.7.0
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
